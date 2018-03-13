@@ -1,9 +1,11 @@
+
+const express = require('express');
 var socketIO = require('./static/socket-io');
+const path = require('path');
 
-var app = require('express')();
-var server = require('http').Server(app);
-var io = socketIO(app);
+const PORT = process.env.PORT || 3000;
 
-server.listen(3000);
+const server = express()
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-console.log('Server running at http://localhost:3000');
+const io = socketIO(server);

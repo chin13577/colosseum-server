@@ -1,7 +1,7 @@
 
 var SkillFactory = require('./skill-factory');
 var GameWorld = require('./game-world');
-module.exports = function (server) {
+module.exports = (server) => {
     var io = require('socket.io')(server);
     var roomList = {};
     var skillFactory = new SkillFactory();
